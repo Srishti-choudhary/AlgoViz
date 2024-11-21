@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="cache-control" content="public">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Algorithms Visualiser</title>
+	<script src="lib/p5.min.js"></script>
+	<script src="src/sketch.js"></script>
+	<script src="src/algorithms/quickSort.js"></script>
+	<script src="src/algorithms/bubbleSort.js"></script>
+	<script src="src/algorithms/selectionSort.js"></script>
+	<script src="src/algorithms/mergeSort.js"></script>
+	<script src="src/algorithms/insertionSort.js"></script>
+	<script src="src/algorithms/radixSort.js"></script>
+	<script src="src/algorithms/binarySearch.js"></script>
+	<script src="src/algorithms/linearSearch.js"></script>
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="src/algorithms/tree.js" defer></script>
+	<script src="src/algorithms/graphs.js" defer></script>
+	<script src="src/dummySort.js"></script>
+	<script src="src/utils.js"></script>
+	<link rel="stylesheet" type="text/css" href="src/style.css" />
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@100&display=swap" rel="stylesheet">
+	<style>
+		#graph-container {
+			position: relative;
+			width: 800px;
+			/* Adjust width as needed */
+			height: 650px;
+			/* Adjust height as needed */
+			text-align: center;
+			/* Center content horizontally */
+		}
+
+		.graph-svg {
+			height: 100%;
+			margin-top: -100px;
+			margin-left: 20px;
+		}
+
+		.sortingVisulizer {
+			margin-top: 20px;
+			background-color: #6c757db8;
+			border: 2px solid pink;
+			border-radius: 10px;
+			width: 100%;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="GraphsVisulizer">
+		<h1 id="heading">Graphs visualization</h1>
+		<div id="graph-container" class="graph-container">
+			<div class="dropdown">
+				<button class="dropbtn">Algorithms</button>
+				<div class="dropdown-content">
+					<div class="graph-controls">
+						<button id="run-dfs-btn">Run DFS</button>
+						<button id="run-bfs-btn" style="top: 28px;">Run BFS</button>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="graph-speed-control"> -->
+			<label for="graph-speed-control">Speed:</label>
+			<input type="range" id="graph-speed-control" min="100" max="1900" value="1000">
+			<!-- </div> -->
+		</div>
+	</div>
+	<div class="TreeVisulizer">
+		<h1 id="heading">Tree visualization</h1>
+		<div id="tree-container">
+			<div class="dropdown">
+				<button class="dropbtn">Algorithms</button>
+				<div class="dropdown-content">
+					<button id="run-dfs">Run DFS</button>
+					<button id="run-bfs" style="top: 28px;">Run BFS</button>
+				</div>
+			</div>
+			<label for="speed-control" style="color: black;">Speed:&nbsp;</label>
+			<input type="range" id="speed-control" min="1" max="10" value="3" step="1">
+		</div>
+	</div>
+
+	<div class="sortingVisulizer">
+		<h1 id="heading">Searching &amp; Sorting visualization</h1>
+		<div id="controls" class="controls">
+			<label for="numRectangles">Count:&nbsp;</label>
+			<input type="range" id="numRectangles" min="10" max="200" value="50" />
+
+			<div class="slider-container">
+				<label for="speedSlider">Speed:&nbsp;</label>
+				<input type="range" id="speedSlider" min="1" max="60" value="50" />
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn">Algorithms</button>
+				<div class="dropdown-content">
+					<button onclick="startVisualization('Binarysearch')">Binary Search</button>
+					<button onclick="startVisualization('linearsearch')">Linear Search</button>
+					<button id="startButton" onclick="startVisualization('insertion')">Insertion Sort</button>
+					<button id="startButton" onclick="startVisualization('selection')">Selection Sort</button>
+					<button id="startButton" onclick="startVisualization('bubble')">Bubble Sort</button>
+					<button id="startButton" onclick="startVisualization('merge')">Merge Sort</button>
+					<button id="startButton" onclick="startVisualization('quick')">Quick Sort</button>
+					<button id="startButton" onclick="startVisualization('radix')">Radix Sort</button>
+				</div>
+			</div>
+			<button id="resetButton" style="background-color: chocolate;">Reset</button>
+		</div>
+	</div>
+
+</body>
+
+</html>
